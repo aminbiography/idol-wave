@@ -3,51 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Author" content="Mohammad Aminul Islam"/>
     <title>idol wave - Web Developer and SEO Consultant</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #9fb9e2;
+            color: #000;
+        }
+        .wrapper {
+            background-color: #fff;
+            width: 90%;
+            margin: 0 auto;
         }
         header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
+            background-color: white;
+            color: #E03FD8;
+            padding: 0;
+            border-radius: 5px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h3, header h2 {
+            margin: 10px 10px;
+        }
+        .header-text {
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
         }
         header img {
-            display: block;
-            margin: 0 auto;
             max-width: 100px;
         }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 10px;
+            display: flex;
+            flex-direction: column; /* Change to vertical layout on small screens */
+            gap: 15px;
+        }
+        
+        nav ul li {
+            display: block; /* Change to block level */
+        }
+        
+        nav ul li a {
+            display: block; /* Change to block level */
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #9fb9e2;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #0d75f8;
+        }
+        
+        /* Media Query for smaller screens */
+        @media (min-width: 768px) {
+            nav ul {
+                flex-direction: row; /* Revert back to horizontal layout */
+            }
+        
+            nav ul li {
+                display: inline; /* Revert back to inline */
+            }
+            }
         main {
             padding: 20px;
             text-align: center;
+        }
+        .Description {
+            text-align: justify; 
+            text-align-last: left;
         }
         .cta {
             background-color: #448aff;
             color: white;
             padding: 20px;
             margin: 20px 0;
-            display: inline-block;
             border-radius: 5px;
+            display: inline-block;
         }
         .cta form {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .cta input {
+        .cta input, .cta button {
             padding: 10px;
             border: none;
             border-radius: 5px;
         }
         .cta button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
             background-color: white;
             color: #448aff;
             cursor: pointer;
@@ -66,7 +122,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
             width: 80%;
             max-width: 300px;
         }
@@ -80,86 +136,265 @@
                 max-width: none;
             }
         }
+        .about-us, .portfolio, .testimonials {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .portfolio-item {
+            margin: 10px 0;
+            display: inline-block;
+        }
+        .portfolio {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .portfolio h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-item {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+            border-radius: 8px;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px #448aff;
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .testimonials {
+            position: relative;
+        }
+        .testimonial {
+            display: none;
+        }
+        .testimonial.active {
+            display: block;
+        }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #ffffff;
+            color: black;
+            border-radius: 5px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
             padding: 10px 0;
             text-align: center;
+        }
+        footer a {
+            color: #E03FD8;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Style for the slideshow container */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        /* Style for images in the slideshow */
+        .slideshow-container img {
+            width: 100%;
+            height: auto;
+            display: none;
         }
     </style>
 </head>
 <body>
+    <div class="wrapper">
+        <header>
+            <h3>
+            <img src="https://i.pinimg.com/280x280_RS/47/fe/88/47fe88b5e8502f61598b1ec6729a2ae9.jpg" width="40" height="40" alt="idol wave Logo"> 
+            idol wave
+            </h3>
+            <h2 class="header-text">Web Developer & SEO Consultant</h2>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-<header>
-    <h1>
-        <img src="https://i.pinimg.com/280x280_RS/47/fe/88/47fe88b5e8502f61598b1ec6729a2ae9.jpg" width="50" height="50" alt="idol wave Logo" style="float:left; margin-top: 15px; margin-left: 25px;">
-        idol wave
-    </h1>
-    <p>Web Developer and SEO Consultant</p>
-</header>
+        <main>
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                <!-- Images for slideshow -->
+                <img class="slide" src="https://scontent.fdac24-4.fna.fbcdn.net/v/t39.30808-6/404105513_731616525655572_8825424293772518780_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=o8baswVqaJQQ7kNvgEaRAu5&_nc_ht=scontent.fdac24-4.fna&oh=00_AYAFg1gEYJNP6b0TADE058bJ-F_-JIHJDaUxytqNQHnvSw&oe=666252FD" alt="Slide 1">
+                <img class="slide" src="https://scontent.fdac24-3.fna.fbcdn.net/v/t39.30808-6/400562304_818884843578774_7743641675385484340_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=c8YxhQwxtFwQ7kNvgGx-W22&_nc_ht=scontent.fdac24-3.fna&oh=00_AYDaWeA5jw_rB04g_Uu62TdHiUisWX_lZB3Nll0LN9onew&oe=66623BF2" alt="Slide 2">
+                <!-- Add more images as needed -->
+            </div>
 
-<main>
-    <section class="services">
-        <div class="service">
-            <h3>Web Development</h3>
-            <p>We build responsive and modern websites tailored to your needs.</p>
-        </div>
-        <div class="service">
-            <h3>SEO Optimization</h3>
-            <p>Boost your search engine rankings with our expert SEO services.</p>
-        </div>
-        <div class="service">
-            <h3>Consulting</h3>
-            <p>Get professional advice on your digital strategy and online presence.</p>
-        </div>
-    </section>
+            <!-- Your existing sections -->
 
-    <section class="cta">
-        <h2>Get Your Website to the Next Level</h2>
-        <p>Contact us today for a free consultation!</p>
-        <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <input type="url" id="website" name="website" placeholder="Your Website URL" required>
-            <button type="submit">Submit</button>
-        </form>
-        <p>Or, Contact: <a href="mailto:info.idolwave@gmail.com" style="color: #FFFFFF;">info.idolwave@gmail.com</a></p>
-    </section>
-</main>
 
-<footer>
-    <img src="https://i.pinimg.com/280x280_RS/47/fe/88/47fe88b5e8502f61598b1ec6729a2ae9.jpg" width="35" height="35" alt="idol wave Logo" style="float:left; margin-top: 10px; margin-left: 25px;">
-    <p>&copy; 2024, All rights reserved by <a href="https://www.google.com/search?q=idol+wave&oq=&gs_lcrp=EgZjaHJvbWUqCQgAEEUYOxjCAzIJCAAQRRg7GMIDMhEIARAAGAMYQhiPARi0AhjqAjIRCAIQABgDGEIYjwEYtAIY6gIyEQgDEAAYAxhCGI8BGLQCGOoCMhEIBBAAGAMYQhiPARi0AhjqAjIRCAUQABgDGEIYjwEYtAIY6gIyEQgGEAAYAxhCGI8BGLQCGOoCMhEIBxAAGAMYQhiPARi0AhjqAtIBDDgwOTIwOTc5ajBqN6gCCLACAQ&sourceid=chrome&ie=UTF-8#ip=1" target="_blank" style="color: #FFFFFF;">idol wave</a></p>
-</footer>
+            <section id="about" class="about-us">
+                <h2>About Us</h2>
+                <p class="Description">At idol wave, we're committed to revolutionizing your online presence with expert web development, SEO optimization, and digital strategy consulting. Our tailored services cater to businesses' unique needs, ensuring success in the competitive digital realm. Specializing in responsive and modern websites, we craft platforms that seamlessly perform across all devices, prioritizing intuitive navigation and fast load times. With our SEO expertise, we strategically integrate keywords, optimize technical aspects, and build a robust online presence through strategic link building to drive organic traffic and boost search engine rankings. Additionally, our professional consulting services offer tailored recommendations across SEO, social media strategy, content marketing, and website optimization, ensuring your digital strategy is refined for measurable results. Trust Idol Wave to bring your vision to life, elevating your online presence and driving your business forward. Contact us today to unlock your website's true potential and propel your business to new heights.</p>
+            </section>
 
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const website = document.getElementById('website').value;
-        alert(`Thank you, ${name}! We will review your website (${website}) and contact you shortly at ${email}.`);
+            <section id="services" class="services">
+                <div class="service">
+                    <h3>Web Development</h3>
+                    <h4>We build responsive and modern websites tailored to your needs.</h4>
+                    <p class="Description">At idol wave, we specialize in building responsive and modern websites tailored to your unique needs. Our web development services focus on creating visually stunning, user-friendly websites that perform seamlessly across all devices. We combine cutting-edge design with robust functionality to ensure your site not only looks great but also delivers an exceptional user experience. Our team of skilled developers works closely with you to understand your business goals and translate them into a digital presence that stands out. From intuitive navigation and fast load times to mobile optimization and secure frameworks, we cover all aspects of web development. 
+                        <br><br>Whether you need an e-commerce platform, a corporate website, or a personal blog, Idol Wave provides custom solutions that drive engagement and conversions. Trust us to bring your vision to life with a website that reflects your brand’s identity and meets the highest industry standards. Contact idol wave today to start building a website that elevates your online presence and supports your business growth.</p>
+                </div>
+                <div class="service">
+                    <h3>SEO Optimization</h3>
+                    <h4>Boost your search engine rankings with our expert SEO services.</h4>
+                    <p class="Description">Struggling to get your website seen online? Our SEO expertise can skyrocket your search engine rankings and drive organic traffic to your site. Imagine your website at the top of search results for terms your potential customers are using. idol wave understand your target audience and strategically integrate keywords throughout your site, from titles and meta descriptions to content and headings. 
+                        <br><br>Beyond keywords, we ensure your site is technically sound, optimizing speed, mobile-friendliness, and user experience. We'll build a strong online presence with strategic link building, earning high-quality backlinks that boost your site's credibility. Successful SEO means increased traffic, more leads, and more business. 
+                        <br><br>As SEO is a marathon, we provide ongoing maintenance and adapt to evolving algorithms. Unlock your website's potential. Contact us today for a free SEO consultation and see how our expertise can propel your business to new heights.</p>
+                </div>
+                <div class="service">
+                    <h3>Consulting</h3>
+                    <h4>Get professional advice on your digital strategy and online presence.</h4>
+                    <p class="Description">At idol wave, we offer expert consulting services to enhance your digital strategy and online presence. Our professional advice is designed to help you navigate the complexities of the digital landscape, ensuring your business stands out in a competitive market. We start by understanding your business goals and current digital footprint, then provide tailored recommendations to optimize your online activities. Our consulting services cover a wide range of areas, including SEO, social media strategy, content marketing, and website optimization. 
+                        <br>We analyze your existing efforts and identify opportunities for improvement, providing actionable insights to boost your visibility and engagement. Whether you're looking to improve your search engine rankings, social media plan, or enhance your website's user experience, idol wave has the expertise to guide you. We stays up-to-date with the latest industry trends, ensuring you receive cutting-edge advice. Partner with idol wave to refine your digital strategy and achieve measurable results. Contact us today to elevate your online presence and drive your business forward.</p>
+                </div>
+            </section>
 
-        // Create a refresh button
-        const refreshButton = document.createElement('button');
-        refreshButton.textContent = 'Refresh Page';
-        refreshButton.style.padding = '10px';
-        refreshButton.style.border = 'none';
-        refreshButton.style.borderRadius = '5px';
-        refreshButton.style.backgroundColor = '#448aff';
-        refreshButton.style.color = 'white';
-        refreshButton.style.cursor = 'pointer';
-        refreshButton.style.marginTop = '20px';
-        
-        // Append the refresh button after the form
-        document.querySelector('.cta').appendChild(refreshButton);
+            <section id="portfolio" class="portfolio">
+                <h2>Portfolio</h2>
+                <a href="https://www.google.com/search?q=idol+wave&sca_esv=421dc2cbf8759f89&ei=UrRcZrHzLMiiseMP_r6CmAQ&gs_ssp=eJzj4tVP1zc0LDYqL8nLTjEzYLRSNagwNjc1TTa3MExOTDSzSEo2tjKoMLJIS0s2MTBNNUkySEkztvTizEzJz1EoTyxLBQBjFhMf&oq=idol+wave&gs_lp=Egxnd3Mtd2l6LXNlcnAiCWlkb2wgd2F2ZSoCCAoyDRAuGIAEGBMYxwEYrwEyCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYExgWGB4yCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYExgWGB4yCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYgAQYogQyHBAuGIAEGBMYxwEYrwEYlwUY3AQY3gQY4ATYAQJIuRtQAFjeD3AAeACQAQCYAX-gAaQIqgEDMC45uAEByAEA-AEBmAIJoALqCMICDhAAGIAEGLEDGIMBGIoFwgIOEC4YgAQYsQMYgwEYigXCAgsQABiABBixAxiDAcICFhAuGIAEGLEDGNEDGIMBGMcBGIoFGArCAgUQLhiABMICCxAAGIAEGLEDGIoFwgIFEAAYgATCAgoQABiABBhDGIoFwgIMEAAYgAQYExhGGP8BwgIHEC4YgAQYE8ICBxAAGIAEGBPCAgkQABiABBgTGArCAg0QLhiABBjRAxgTGMcBwgIYEAAYgAQYExhGGP8BGJcFGIwFGN0E2AEBwgIPEC4YgAQYExjHARgNGK8BwgIKEAAYExgWGB4YD8ICHhAuGIAEGBMYxwEYDRivARiXBRjcBBjeBBjgBNgBApgDALoGBggBEAEYE7oGBggCEAEYFJIHAzAuOaAH6Uk&sclient=gws-wiz-serp" target="_blank">
+                <div class="portfolio-item">
+                    <h3>Project 1</h3>
+                    <p>A modern and responsive website.</p>
+                </div>
+                <div class="portfolio-item">
+                    <h3>Project 2</h3>
+                    <p>A SEO optimized site for increased traffic.</p>
+                </div>
+                <div class="portfolio-item">
+                    <h3>Project 3</h3>
+                    <p>A consulting platform with an intuitive user interface.</p>
+                </div>
+            </a>
+            </section>
 
-        // Add event listener to refresh the page on button click
-        refreshButton.addEventListener('click', function() {
-            location.reload();
+            <section id="testimonials" class="testimonials">
+                <h2>Testimonials</h2>
+                <div class="testimonial active">
+                    <p>"idol wave transformed our online presence. Our website traffic increased by 50% in just 3 months!"</p>
+                    <p>- Parkin Gfic</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The team at idol wave is professional and knowledgeable. They delivered exactly what we needed."</p>
+                    <p>- Kirti Param</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Our website is now modern and user-friendly. We've received numerous compliments from our customers."</p>
+                    <p>- Deuk Rechard</p>
+                </div>
+            </section>
+
+            <section id="contact" class="cta">
+                <h2>Get Your Website to the Next Level</h2>
+                <p>Contact us today for a free consultation!</p>
+                <form id="contactForm">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <input type="url" id="website" name="website" placeholder="Your Website URL" required>
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Or, Contact: <a href="mailto:info.idolwave@gmail.com">info.idolwave@gmail.com</a></p>
+            </section>
+        </main>
+
+        <footer>
+            <p><img src="https://i.pinimg.com/280x280_RS/47/fe/88/47fe88b5e8502f61598b1ec6729a2ae9.jpg" width="50" height="50" alt="idol wave Logo">
+            &copy; 2024, All rights reserved by <a href="https://www.google.com/search?q=idol+wave&sca_esv=421dc2cbf8759f89&ei=UrRcZrHzLMiiseMP_r6CmAQ&gs_ssp=eJzj4tVP1zc0LDYqL8nLTjEzYLRSNagwNjc1TTa3MExOTDSzSEo2tjKoMLJIS0s2MTBNNUkySEkztvTizEzJz1EoTyxLBQBjFhMf&oq=idol+wave&gs_lp=Egxnd3Mtd2l6LXNlcnAiCWlkb2wgd2F2ZSoCCAoyDRAuGIAEGBMYxwEYrwEyCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYExgWGB4yCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYExgWGB4yCBAAGBMYFhgeMggQABgTGBYYHjIIEAAYgAQYogQyHBAuGIAEGBMYxwEYrwEYlwUY3AQY3gQY4ATYAQJIuRtQAFjeD3AAeACQAQCYAX-gAaQIqgEDMC45uAEByAEA-AEBmAIJoALqCMICDhAAGIAEGLEDGIMBGIoFwgIOEC4YgAQYsQMYgwEYigXCAgsQABiABBixAxiDAcICFhAuGIAEGLEDGNEDGIMBGMcBGIoFGArCAgUQLhiABMICCxAAGIAEGLEDGIoFwgIFEAAYgATCAgoQABiABBhDGIoFwgIMEAAYgAQYExhGGP8BwgIHEC4YgAQYE8ICBxAAGIAEGBPCAgkQABiABBgTGArCAg0QLhiABBjRAxgTGMcBwgIYEAAYgAQYExhGGP8BGJcFGIwFGN0E2AEBwgIPEC4YgAQYExjHARgNGK8BwgIKEAAYExgWGB4YD8ICHhAuGIAEGBMYxwEYDRivARiXBRjcBBjeBBjgBNgBApgDALoGBggBEAEYE7oGBggCEAEYFJIHAzAuOaAH6Uk&sclient=gws-wiz-serp" target="_blank">idol wave</a></p>
+        </footer>
+    </div>
+
+    <script>
+         // JavaScript for slideshow
+         let slideIndex = 0;
+         const slides = document.querySelectorAll('.slide');
+ 
+         function showSlides() {
+             for (let i = 0; i < slides.length; i++) {
+                 slides[i].style.display = "none";  
+             }
+             slideIndex++;
+             if (slideIndex > slides.length) {slideIndex = 1}    
+             slides[slideIndex-1].style.display = "block";  
+             setTimeout(showSlides, 2000); // Change image every 2 seconds
+         }
+ 
+         // Call the function to start the slideshow
+         showSlides();
+         // Slide show End
+
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const website = document.getElementById('website').value;
+            alert(`Thank you, ${name}! We will review your website (${website}) and contact you shortly at ${email}.`);
+
+            const refreshButton = document.createElement('button');
+            refreshButton.textContent = 'Refresh Page';
+            refreshButton.style.padding = '10px';
+            refreshButton.style.border = 'none';
+            refreshButton.style.borderRadius = '5px';
+            refreshButton.style.backgroundColor = '#448aff';
+            refreshButton.style.color = 'white';
+            refreshButton.style.cursor = 'pointer';
+            refreshButton.style.marginTop = '20px';
+
+            document.querySelector('.cta').appendChild(refreshButton);
+
+            refreshButton.addEventListener('click', function() {
+                location.reload();
+            });
         });
-    });
-</script>
 
+        // Testimonials section - rotating testimonials
+        let testimonialIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        function showNextTestimonial() {
+            testimonials[testimonialIndex].classList.remove('active');
+            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+            testimonials[testimonialIndex].classList.add('active');
+        }
+        setInterval(showNextTestimonial, 3000);
+    </script>
 </body>
 </html>
